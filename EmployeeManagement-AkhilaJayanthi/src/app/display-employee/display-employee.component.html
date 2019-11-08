@@ -1,0 +1,12 @@
+<div class="alert alert-success" *ngIf='isValid'>
+  <strong>{{message}}</strong> 
+</div>
+
+<div class="container">
+  <h3 style="text-align:center;color:rgb(15, 15, 15)">Employee Details:</h3>
+ <table class="table table-striped container col-sm-4">
+
+     <tr><th>EID</th><th>ENAME</th><th>SALARY</th><th>GENDER</th><th>JOB</th></tr>
+     <tr *ngFor="let emp of empList"><td>{{emp.eid}}</td><td>{{emp.ename}}</td><td>{{emp.salary}}</td><td>{{emp.gender}}</td><td>{{emp.job}}</td></tr>
+
+ </table>

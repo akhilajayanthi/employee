@@ -1,0 +1,13 @@
+<div class="alert alert-success" *ngIf='isValid'>
+    <strong>{{message}}</strong> 
+  </div>
+
+<form class="container col-sm-4" #deleteForm="ngForm" (ngSubmit)="deleteEmployee(deleteForm)">
+    <h3 style="color:rgb(8, 8, 8)">Delete Employee</h3>
+    <div class="form-group">
+      <label >ID:</label>
+      <input class="form-control" type="text" [(ngModel)]="eid" required pattern="[0-9]{3}" name="eid" #id="ngModel" ngModel />
+      <span style="color:red" *ngIf="id.invalid && id.touched">Employee Id required</span>
+    </div>
+          <button type="submit" class="btn btn-danger">Delete Employee</button>  <button align="right" type="reset" class="btn btn-warning">Reset</button>
+      </form>

@@ -1,0 +1,57 @@
+
+<div class="alert alert-success" *ngIf='isValid'>
+    <strong>{{message}}</strong> 
+  </div>
+
+  
+<form class="container col-sm-4" #updateForm="ngForm" (ngSubmit)="updateEmployee(updateForm)">
+    <h3 style="color:black">Update Employee</h3>
+    <div class="form-group">
+      <label >ID:</label>
+      <input class="form-control" type="text" [(ngModel)]="eid" required pattern="[0-9]{3}" name="eid" #id="ngModel" ngModel />
+      <span style="color:red" *ngIf="id.invalid && id.touched">Employee Id required</span>
+    </div>
+    
+    <div class="form-group">
+      <label >NAME:</label>
+      <input class="form-control" type="text" [(ngModel)]="ename" required pattern="[A-Za-z]{15}" name="ename" #uid="ngModel" ngModel/>
+      <span style="color:red" *ngIf="uid.invalid && uid.touched">Name required</span>
+    </div>
+  
+    <div class="form-group">
+      <label for="">SALARY:</label>
+      <input class="form-control" type="number" [(ngModel)]="salary" required name="salary" #sal="ngModel" ngModel/>
+      <span style="color:red" *ngIf="sal.invalid && sal.touched">Salary required</span>
+    </div>
+  
+    <div class="radio">
+      <label>GENDER: </label> 
+      <input class="radio-control" type="radio" [(ngModel)]="gender" required name="gender" value="male" />Male 
+      <input class="radio-control" type="radio" [(ngModel)]="gender" required name="gender" value="female" />Female
+    </div>
+  
+    <div class="form-group">
+        <label for="">MOBILE:</label>
+        <input class="form-control" type="number" [(ngModel)]="mobile" required pattern="[7-9][0-9]{9}" name="mobile" #mob="ngModel" ngModel/>
+        <span style="color:red" *ngIf="mob.invalid && mob.touched">Mobile required</span>
+      </div>
+  
+      <div class="form-group">
+          <label >EMAIL:</label>
+          <input class="form-control" type="email" [(ngModel)]="email" required pattern="[A-Za-z]{15}" name="email" #eml="ngModel" ngModel email="true"/>
+          <span style="color:red" *ngIf="eml.invalid && eml.touched">Email required</span>
+        </div>
+        
+    <div class="form-group">
+      <label>JOB:</label>
+      <select name="job">
+        <option value="admin">Admin</option>
+        <option value="finance">Finance</option>
+        <option value="development">Development</option>
+        <option value="sales">Sales</option>
+      </select>
+      <!-- <input class="form-control" type="text" [(ngModel)]="job" name="job" /> -->
+    </div>
+        <button type="submit" class="btn btn-success">Update Employee</button>  <button align="right" type="reset" class="btn btn-warning">Reset</button>
+      
+      </form>

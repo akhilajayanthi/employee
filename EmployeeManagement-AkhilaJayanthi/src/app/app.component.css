@@ -1,0 +1,11 @@
+div {
+    width: 350px;
+    border: 25px;
+    padding: 50px;
+    margin: 25px;
+    text-align: center;
+  }
+  footer{
+    position: fixed;
+  }
+ 
