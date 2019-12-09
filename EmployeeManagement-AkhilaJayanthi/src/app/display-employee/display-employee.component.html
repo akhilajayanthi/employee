@@ -1,12 +1,92 @@
-<div class="alert alert-success" *ngIf='isValid'>
-  <strong>{{message}}</strong> 
-</div>
+<!DOCTYPE html>
+<html>
 
-<div class="container">
-  <h3 style="text-align:center;color:rgb(15, 15, 15)">Employee Details:</h3>
- <table class="table table-striped container col-sm-4">
+<head>
+  <title>Display</title>
+</head>
 
-     <tr><th>EID</th><th>ENAME</th><th>SALARY</th><th>GENDER</th><th>JOB</th></tr>
-     <tr *ngFor="let emp of empList"><td>{{emp.eid}}</td><td>{{emp.ename}}</td><td>{{emp.salary}}</td><td>{{emp.gender}}</td><td>{{emp.job}}</td></tr>
+<body>
 
- </table>
+  <!--Alert message when deletion or updation is done-->
+  <div class="alert" *ngIf='isValid'>
+    <strong>{{message}}</strong>
+  </div>
+
+  <!--container class for tabel and updation form-->
+  <div class="container">
+    <h3 style="text-align:center;color:whitesmoke">Employee Details:</h3>
+
+    <!--Table to display all the data with edit and delete buttons-->
+    <table class="table table-striped">
+
+      <tr>
+        <th>First Name</th>
+        <th>Middle Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let emp of empList">
+        <td>{{emp.fname}}</td>
+        <td>{{emp.mname}}</td>
+        <td>{{emp.lname}}</td>
+        <td>{{emp.email}}</td>
+        <td>{{emp.mobile}}</td>
+        <td>
+          <button type="submit" class="btn" style="margin-left: 20px;" (click)="valid =true">
+            Edit
+          </button>
+          <button type="submit" class="btn" style="margin-left: 20px;"
+            (click)="deleteEmployee(emp.email)">Delete
+          </button>
+        </td>
+      </tr>
+
+    </table>
+
+    <!--Form for updating details-->
+    <!--Form displays when edit is clicked-->
+    <div *ngIf='valid'>
+      <form class="container update col-sm-4" #myForm="ngForm" (ngSubmit)="updateEmployee(myForm)">
+        <h3 style="color:whitesmoke">Edit Data</h3>
+
+        <div class="form-group">
+          <input class="form-control" type="text" placeholder="First Name" [(ngModel)]="fnameText" required
+            pattern="^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$" name="fname" #fname="ngModel" ngModel />
+          <span style="color:red" *ngIf="fname.invalid && fname.touched">First Name required</span>
+        </div>
+
+        <div class="form-group">
+          <input class="form-control" type="text" placeholder="Middle Name" [(ngModel)]="mnameText"
+            pattern="^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$" name="mname" #mname="ngModel" ngModel />
+        </div>
+
+        <div class="form-group">
+          <input class="form-control" type="text" placeholder="Last Name" [(ngModel)]="lnameText" required
+            pattern="^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$" name="lname" #lname="ngModel" ngModel />
+          <span style="color:red" *ngIf="lname.invalid && lname.touched">Last Name required</span>
+        </div>
+
+        <div class="form-group">
+          <input class="form-control" type="email" placeholder="Email" [(ngModel)]="email" required
+            pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" name="email" #eml="ngModel" ngModel />
+          <span style="color:red" *ngIf="eml.invalid && eml.touched">Email required</span>
+        </div>
+
+        <div class="form-group">
+          <input class="form-control" type="number" placeholder="Mobile" [(ngModel)]="mobile" required
+            pattern="[7-9][0-9]{9}" name="mobile" #mob="ngModel" ngModel />
+          <span style="color:red" *ngIf="mob.invalid && mob.touched">Mobile required</span>
+        </div>
+
+        <button type="submit" class="btn">Update</button> <button style="margin-left:10px;" type="reset"
+          class="btn">Reset</button>
+
+      </form>
+    </div>
+  </div>
+
+</body>
+
+</html>

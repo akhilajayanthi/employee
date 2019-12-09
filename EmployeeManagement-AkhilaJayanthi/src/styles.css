@@ -1,1 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Body CSS*/
+body {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(43, 41, 41);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+  }
+
+
+  /* input elements CSS*/
+  input {
+    background-color: rgb(37, 36, 36);
+    color: rgb(192, 190, 190);
+    border-block-color: white;
+    width: 20%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  /* Button CSS*/
+  .btn {
+    color: rgb(236, 234, 234);
+    border: 1px solid whitesmoke;
+  }
+  
+  .btn:hover {
+    background-color: #545754;
+  }
+
+  /* Alert Box CSS*/
+.alert {
+
+    background-color: #545754;
+    color: whitesmoke;
+    text-align: center;
+  }

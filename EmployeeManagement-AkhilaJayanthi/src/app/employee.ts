@@ -1,9 +1,9 @@
+//Interface with employee variables
 export interface Employee{
-    eid:number;
-    ename:string;
-    salary:number;
-    gender:string;
-    mobile:number;
+    fname:String;
+    mname:String;
+    lname:String;
     email:string;
-    job:string;
+    mobile:number;
+    password:string;
 }

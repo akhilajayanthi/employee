@@ -1,56 +1,71 @@
-<div class="alert alert-success" *ngIf='isValid'>
-  <strong>{{message}}</strong> 
-</div>
+<!DOCTYPE html>
+<html>
 
-<form class="container col-sm-4" #myForm="ngForm" (ngSubmit)="addEmployee(myForm)" >
-<h3 style="color:rgb(8, 8, 8)">Add Employee</h3>
+<head>
+  <title>Registration</title>
+</head>
 
-  <div class="form-group">
-    <label >ID:</label>
-    <input class="form-control" type="text" [(ngModel)]="eid" required pattern="[0-9]{3}" name="eid" #id="ngModel" ngModel />
-    <span style="color:red" *ngIf="id.invalid && id.touched">Employee Id required</span>
-  </div>
-  
-  <div class="form-group">
-    <label >NAME:</label>
-    <input class="form-control" type="text" [(ngModel)]="ename" required pattern="^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$" name="ename" #uid="ngModel" ngModel/>
-    <span style="color:red" *ngIf="uid.invalid && uid.touched">Name required</span>
+<body>
+
+       <!--Alert Message when employee data is added-->
+  <div class="alert" *ngIf='isValid'>
+    <strong>{{message}}</strong>
   </div>
 
-  <div class="form-group">
-    <label for="">SALARY:</label>
-    <input class="form-control" type="number" [(ngModel)]="salary" required name="salary" #sal="ngModel" ngModel/>
-    <span style="color:red" *ngIf="sal.invalid && sal.touched">Salary required</span>
-  </div>
+  <!--Registration Form to add employee data base-->
+      
+  <form class="container col-sm-4" #myForm="ngForm" (ngSubmit)="addEmployee(myForm)">
+    <h3 style="color:whitesmoke">Registration Form</h3>
 
-  <div class="radio">
-    <label>GENDER: </label> 
-    <input class="radio-control" type="radio" [(ngModel)]="gender" required name="gender" value="male" />Male 
-    <input class="radio-control" type="radio" [(ngModel)]="gender" required name="gender" value="female" />Female
-  </div>
+    <div class="form-group">
+      <input class="form-control" type="text" placeholder="First Name" [(ngModel)]="fnameText" required
+        pattern="^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$" name="fname" #fname="ngModel" ngModel />
+      <span style="color:red" *ngIf="fname.invalid && fname.touched">First Name required</span>
+    </div>
 
-  <div class="form-group">
-      <label for="">MOBILE:</label>
-      <input class="form-control" type="number" [(ngModel)]="mobile" required pattern="[7-9][0-9]{9}" name="mobile" #mob="ngModel" ngModel/>
+    <div class="form-group">
+      <input class="form-control" type="text" placeholder="Middle Name" [(ngModel)]="mnameText" required
+        pattern="^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$" name="mname" #mname="ngModel" ngModel />
+    </div>
+
+    <div class="form-group">
+      <input class="form-control" type="text" placeholder="Last Name" [(ngModel)]="lnameText" required
+        pattern="^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$" name="lname" #lname="ngModel" ngModel />
+      <span style="color:red" *ngIf="lname.invalid && lname.touched">Last Name required</span>
+    </div>
+
+    <div class="form-group">
+      <input class="form-control" type="email" placeholder="Email" [(ngModel)]="email" required
+        pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" name="email" #eml="ngModel" ngModel />
+      <span style="color:red" *ngIf="eml.invalid && eml.touched">Email required</span>
+    </div>
+
+    <div class="form-group">
+      <input class="form-control" type="number" placeholder="Mobile" [(ngModel)]="mobile" required
+        pattern="[7-9][0-9]{9}" name="mobile" #mob="ngModel" ngModel />
       <span style="color:red" *ngIf="mob.invalid && mob.touched">Mobile required</span>
     </div>
 
     <div class="form-group">
-        <label >EMAIL:</label>
-        <input class="form-control" type="email" [(ngModel)]="email" required pattern="^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$" name="email" #eml="ngModel" ngModel email="true"/>
-        <span style="color:red" *ngIf="eml.invalid && eml.touched">Email required</span>
-      </div>
-      
-      <div class="form-group">
-        <label>JOB:</label>
-        <select name="job">
-          <option value="admin">Admin</option>
-          <option value="finance">Finance</option>
-          <option value="development">Development</option>
-          <option value="sales">Sales</option>
-        </select>
-        <!-- <input class="form-control" type="text" [(ngModel)]="job" name="job" /> -->
-      </div>
-  <button type="submit" class="btn btn-primary">Add Employee</button>  <button align="right" type="reset" class="btn btn-warning">Reset</button>
 
-</form>
+      <input class="form-control" type="password" placeholder="Password" [(ngModel)]="pswdPassword" required name="pswd"
+        #pswd="ngModel" ngModel />
+      <span style="color:red" *ngIf="pswd.invalid && pswd.touched">Password required</span>
+    </div>
+
+    <div class="form-group">
+      <input class="form-control" type="password" placeholder="Confirm Password" [(ngModel)]="cpswdPassword" required
+        name="cpswd" #cpswd="ngModel" ngModel />
+      <span style="color:red" *ngIf="cpswd.invalid && cpswd.touched">Password Mismatch</span>
+    </div>
+
+
+    <button type="button" class="btn">Add</button>
+     <button type="reset" id="reset" class="btn">Reset</button>
+
+  </form>
+</body>
+
+
+
+</html>

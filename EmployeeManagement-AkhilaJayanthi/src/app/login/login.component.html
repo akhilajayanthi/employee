@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login
+        <i class="fa fa-user-circle" aria-hidden="true"></i>
+    </title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+</head>
+
+<!--Form with email, password for login and register for adding new employee details-->
+<body>
+    <div id="parent">
+        <form class="form_login" #LoginForm="ngForm">
+            <h4 style="color: whitesmoke;">Login</h4>
+            <input type="text" name="username" [(ngModel)]="usernameText" placeholder="username/email"
+                #username="ngModel" ngModel> <br>
+            <input type="password" name="password" [(ngModel)]="passwordPassword" placeholder="password"
+                #password="ngModel" ngModel> <br>
+            <button (click)="authenticateLogin(LoginForm)" type="submit" class="btn">Login</button>
+            <button type="button" class="btn" style="margin-left: 20px;" (click)="register()">Register</button>
+        </form>
+    </div>
+    <router-outlet></router-outlet>
+</body>
+
+</html>

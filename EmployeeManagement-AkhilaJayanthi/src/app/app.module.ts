@@ -9,16 +9,14 @@ import { AppComponent } from './app.component';
 import { EmployeeService } from './employee.service';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { DisplayEmployeeComponent } from './display-employee/display-employee.component';
-import { DeleteComponent } from './delete/delete.component';
-import { UpdateComponent } from './update/update.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddEmployeeComponent,
     DisplayEmployeeComponent,
-    DeleteComponent,
-    UpdateComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,FormsModule,
